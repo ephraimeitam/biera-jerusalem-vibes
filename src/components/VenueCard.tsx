@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Heart } from 'lucide-react';
+import { Heart, ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
 
@@ -12,6 +12,7 @@ interface VenueCardProps {
   address: string;
   hours: string;
   imageUrl: string;
+  additionalImages?: string[];
 }
 
 const VenueCard: React.FC<VenueCardProps> = ({
@@ -22,10 +23,15 @@ const VenueCard: React.FC<VenueCardProps> = ({
   address,
   hours,
   imageUrl,
+  additionalImages = [],
 }) => {
   const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
-
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  // Combine main image with additional images
+  const allImages = [imageUrl, ...(additionalImages || [])];
+  
   const handleLike = () => {
     if (!liked) {
       setLiked(true);
@@ -40,6 +46,14 @@ const VenueCard: React.FC<VenueCardProps> = ({
       likedVenues[id] = true;
       localStorage.setItem('likedVenues', JSON.stringify(likedVenues));
     }
+  };
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
   };
 
   // Check if already liked from local storage when component mounts
@@ -57,7 +71,7 @@ const VenueCard: React.FC<VenueCardProps> = ({
     <div className="card-container h-full flex flex-col">
       <div className="relative h-56 overflow-hidden rounded-t-2xl">
         <img
-          src={imageUrl}
+          src={allImages[currentImageIndex]}
           alt={name}
           className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
           onError={(e) => {
@@ -67,6 +81,44 @@ const VenueCard: React.FC<VenueCardProps> = ({
             target.src = 'https://placehold.co/600x400/1A1F2C/F5D77D?text=תמונה+לא+זמינה';
           }}
         />
+        
+        {/* Image navigation controls - only show if there are multiple images */}
+        {allImages.length > 1 && (
+          <>
+            <button 
+              onClick={prevImage}
+              className="absolute top-1/2 left-2 -translate-y-1/2 bg-black/50 p-1 rounded-full text-white hover:bg-black/70 transition-all"
+              aria-label="Previous image"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button 
+              onClick={nextImage}
+              className="absolute top-1/2 right-2 -translate-y-1/2 bg-black/50 p-1 rounded-full text-white hover:bg-black/70 transition-all"
+              aria-label="Next image"
+            >
+              <ChevronRight size={20} />
+            </button>
+            
+            {/* Image indicators */}
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+              {allImages.map((_, index) => (
+                <button 
+                  key={index}
+                  onClick={() => setCurrentImageIndex(index)}
+                  className={cn(
+                    "w-2 h-2 rounded-full transition-all",
+                    currentImageIndex === index 
+                      ? "bg-white scale-110" 
+                      : "bg-white/50 hover:bg-white/80"
+                  )}
+                  aria-label={`Go to image ${index + 1}`}
+                />
+              ))}
+            </div>
+          </>
+        )}
+        
         <div className="absolute top-0 left-0 right-0 p-4 bg-gradient-to-b from-black/70 to-transparent">
           <div className="flex items-center justify-between">
             <h3 className="text-2xl font-bold text-jerusalem-light">{icon} {name}</h3>

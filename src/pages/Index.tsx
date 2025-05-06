@@ -36,7 +36,8 @@ const Index = () => {
       description: 'בר כשר עם קוקטיילים, מנות שף, שלוש קומות ועיצוב צבעוני בלב כיכר המוזיקה. הופעות חיות כמעט כל ערב.',
       address: 'מעבר בית הכנסת 12, כיכר המוזיקה, ירושלים',
       hours: '🕕 חמישי: 18:00–00:30',
-      imageUrl: 'public/lovable-uploads/38455afd-d96c-4d35-ac8d-f9de514ea677.png'
+      imageUrl: 'public/lovable-uploads/38455afd-d96c-4d35-ac8d-f9de514ea677.png',
+      additionalImages: ['public/andalusia.jpg']
     },
     {
       id: 'sambation',
@@ -100,6 +101,7 @@ const Index = () => {
               address={venue.address}
               hours={venue.hours}
               imageUrl={venue.imageUrl}
+              additionalImages={venue.additionalImages}
             />
           ))}
         </div>
