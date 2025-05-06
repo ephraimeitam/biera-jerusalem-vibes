@@ -45,7 +45,7 @@ const Index = () => {
       description: '25 מקומות בלבד, אווירה אינטימית ורגועה, קוקטיילים בהשראת התרבות היהודית, Happy Hour 17:00–19:00.',
       address: 'גרשון אגרון 22, ירושלים',
       hours: '🕕 חמישי: 17:00–מאוחר',
-      imageUrl: 'public/lovable-uploads/115a81a3-f690-4f6e-953c-3f27a694c5ca.png'
+      imageUrl: 'public/lovable-uploads/53158a77-d0ea-43a4-bddf-4ccd34b36cd7.png'
     },
     {
       id: 'machne-yehuda',
@@ -71,7 +71,7 @@ const Index = () => {
         <header className="text-center mb-14">
           <div className="flex items-center justify-center gap-3 mb-6">
             <img 
-              src="public/lovable-uploads/53158a77-d0ea-43a4-bddf-4ccd34b36cd7.png" 
+              src="public/lovable-uploads/115a81a3-f690-4f6e-953c-3f27a694c5ca.png" 
               alt="Beer Mug" 
               className="w-14 h-14 animate-float" 
             />
@@ -79,7 +79,7 @@ const Index = () => {
               מה עם בירה בבירה?
             </h1>
             <img 
-              src="public/lovable-uploads/53158a77-d0ea-43a4-bddf-4ccd34b36cd7.png" 
+              src="public/lovable-uploads/115a81a3-f690-4f6e-953c-3f27a694c5ca.png" 
               alt="Beer Mug" 
               className="w-14 h-14 animate-float" 
               style={{ animationDelay: '1s' }}
