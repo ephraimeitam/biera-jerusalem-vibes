@@ -1,3 +1,4 @@
+
 import React from 'react';
 import VenueCard from '@/components/VenueCard';
 
@@ -35,7 +36,7 @@ const Index = () => {
       description: 'בר כשר עם קוקטיילים, מנות שף, שלוש קומות ועיצוב צבעוני בלב כיכר המוזיקה. הופעות חיות כמעט כל ערב.',
       address: 'מעבר בית הכנסת 12, כיכר המוזיקה, ירושלים',
       hours: '🕕 חמישי: 18:00–00:30',
-      imageUrl: '/src/assets/images/andalusia.jpg'
+      imageUrl: 'public/lovable-uploads/38455afd-d96c-4d35-ac8d-f9de514ea677.png'
     },
     {
       id: 'sambation',
@@ -44,7 +45,7 @@ const Index = () => {
       description: '25 מקומות בלבד, אווירה אינטימית ורגועה, קוקטיילים בהשראת התרבות היהודית, Happy Hour 17:00–19:00.',
       address: 'גרשון אגרון 22, ירושלים',
       hours: '🕕 חמישי: 17:00–מאוחר',
-      imageUrl: '/src/assets/images/sambation.jpg'
+      imageUrl: 'public/lovable-uploads/115a81a3-f690-4f6e-953c-3f27a694c5ca.png'
     },
     {
       id: 'machne-yehuda',
@@ -53,7 +54,7 @@ const Index = () => {
       description: 'בין הסמטאות – ברים, מוזיקה, גרפיטי, מעל 100 סוגי בירות. שוק שהופך למסיבה ירושלמית אחת גדולה.',
       address: 'שוק מחנה יהודה, ירושלים',
       hours: '🕕 חמישי בלילה עד השעות הקטנות',
-      imageUrl: '/src/assets/images/crave.jpeg'
+      imageUrl: 'public/lovable-uploads/0e26404f-28e2-443a-a1b0-97f3c0907c6d.png'
     }
   ];
 
@@ -70,7 +71,7 @@ const Index = () => {
         <header className="text-center mb-14">
           <div className="flex items-center justify-center gap-3 mb-6">
             <img 
-              src="/src/assets/images/beer-mug.png" 
+              src="public/lovable-uploads/53158a77-d0ea-43a4-bddf-4ccd34b36cd7.png" 
               alt="Beer Mug" 
               className="w-14 h-14 animate-float" 
             />
@@ -78,7 +79,7 @@ const Index = () => {
               מה עם בירה בבירה?
             </h1>
             <img 
-              src="/src/assets/images/beer-mug.png" 
+              src="public/lovable-uploads/53158a77-d0ea-43a4-bddf-4ccd34b36cd7.png" 
               alt="Beer Mug" 
               className="w-14 h-14 animate-float" 
               style={{ animationDelay: '1s' }}
