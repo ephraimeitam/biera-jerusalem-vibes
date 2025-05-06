@@ -1,4 +1,3 @@
-
 import React from 'react';
 import VenueCard from '@/components/VenueCard';
 
@@ -36,7 +35,7 @@ const Index = () => {
       description: 'בר כשר עם קוקטיילים, מנות שף, שלוש קומות ועיצוב צבעוני בלב כיכר המוזיקה. הופעות חיות כמעט כל ערב.',
       address: 'מעבר בית הכנסת 12, כיכר המוזיקה, ירושלים',
       hours: '🕕 חמישי: 18:00–00:30',
-      imageUrl: 'https://kikar-hamusica.com/wp-content/uploads/2020/12/Andalucia-2.jpg'
+      imageUrl: '/src/assets/images/andalusia.jpg'
     },
     {
       id: 'sambation',
@@ -45,7 +44,7 @@ const Index = () => {
       description: '25 מקומות בלבד, אווירה אינטימית ורגועה, קוקטיילים בהשראת התרבות היהודית, Happy Hour 17:00–19:00.',
       address: 'גרשון אגרון 22, ירושלים',
       hours: '🕕 חמישי: 17:00–מאוחר',
-      imageUrl: 'https://res.cloudinary.com/dwboekzwq/image/upload/v1714487242/sambation_bar_uw1e1s.jpg'
+      imageUrl: '/src/assets/images/sambation.jpg'
     },
     {
       id: 'machne-yehuda',
@@ -54,7 +53,7 @@ const Index = () => {
       description: 'בין הסמטאות – ברים, מוזיקה, גרפיטי, מעל 100 סוגי בירות. שוק שהופך למסיבה ירושלמית אחת גדולה.',
       address: 'שוק מחנה יהודה, ירושלים',
       hours: '🕕 חמישי בלילה עד השעות הקטנות',
-      imageUrl: 'https://www.machne.co.il/wp-content/uploads/2021/03/DSC_7329.jpg'
+      imageUrl: '/src/assets/images/crave.jpeg'
     }
   ];
 
@@ -64,14 +63,14 @@ const Index = () => {
       {bubbles}
       
       {/* Jerusalem city skyline */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-[url('https://res.cloudinary.com/dwboekzwq/image/upload/v1714486651/jerusalem-skyline_slrspj.png')] bg-repeat-x bg-bottom opacity-20"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-[url('/src/assets/images/jerusalem-skyline.png')] bg-repeat-x bg-bottom opacity-20"></div>
       
       {/* Main content */}
       <div className="container max-w-6xl mx-auto px-4 py-12">
         <header className="text-center mb-14">
           <div className="flex items-center justify-center gap-3 mb-6">
             <img 
-              src="https://res.cloudinary.com/dwboekzwq/image/upload/v1714486651/beer-mug_wjrbkk.png" 
+              src="/src/assets/images/beer-mug.png" 
               alt="Beer Mug" 
               className="w-14 h-14 animate-float" 
             />
@@ -79,7 +78,7 @@ const Index = () => {
               מה עם בירה בבירה?
             </h1>
             <img 
-              src="https://res.cloudinary.com/dwboekzwq/image/upload/v1714486651/beer-mug_wjrbkk.png" 
+              src="/src/assets/images/beer-mug.png" 
               alt="Beer Mug" 
               className="w-14 h-14 animate-float" 
               style={{ animationDelay: '1s' }}
