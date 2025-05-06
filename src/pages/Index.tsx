@@ -86,11 +86,7 @@ const Index = () => {
             />
           </div>
           
-          <div className="bg-jerusalem-dark/70 backdrop-blur-md p-6 rounded-xl max-w-3xl mx-auto border border-jerusalem-gold/10">
-            <p className="text-lg text-jerusalem-light leading-relaxed">
-              אנחנו ארבעה חברים שמתלבטים לאן לצאת לשתות בירושלים ביום חמישי. תעזרו לנו להחליט – תנו לייק למקום שהכי בא לכם עליו!
-            </p>
-          </div>
+          {/* Subtitle is removed as requested */}
         </header>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

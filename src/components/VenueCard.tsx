@@ -60,6 +60,12 @@ const VenueCard: React.FC<VenueCardProps> = ({
           src={imageUrl}
           alt={name}
           className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            console.error(`Failed to load image: ${target.src}`);
+            target.onerror = null;
+            target.src = 'https://placehold.co/600x400/1A1F2C/F5D77D?text=תמונה+לא+זמינה';
+          }}
         />
         <div className="absolute top-0 left-0 right-0 p-4 bg-gradient-to-b from-black/70 to-transparent">
           <div className="flex items-center justify-between">
