@@ -57,7 +57,7 @@ const Index = () => {
       imageUrl: 'public/lovable-uploads/0e26404f-28e2-443a-a1b0-97f3c0907c6d.png'
     }
   ];
-
+ 
   return (
     <div className="min-h-screen w-full relative overflow-hidden">
       {/* Background beer bubble animations */}
