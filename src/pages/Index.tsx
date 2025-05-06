@@ -98,7 +98,7 @@ const Index = () => {
               address={venue.address}
               hours={venue.hours}
               imageUrl={venue.imageUrl}
-              additionalImages={venue.additionalImages}
+             
             />
           ))}
         </div>
