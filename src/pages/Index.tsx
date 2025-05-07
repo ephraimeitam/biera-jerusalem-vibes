@@ -1,114 +1,106 @@
-
 import React from 'react';
 import VenueCard from '@/components/VenueCard';
 
+// 📦 Static assets handled by Vite – hashes & base path will be injected automatically
+import beerMug from '@/assets/images/beer-mug.png';
+import andalusiaImg from '@/assets/images/andalusia.jpg';
+import sambationImg from '@/assets/images/sambation.jpg';
+import craveImg from '@/assets/images/crave.png';
+
 const Index = () => {
-  // Beer bubble animation elements
+  // --- animated beer bubbles (purely visual) ---------------------------------
   const bubbles = Array.from({ length: 15 }).map((_, i) => {
     const size = Math.random() * 40 + 10;
     const left = Math.random() * 100;
     const animationDelay = Math.random() * 10;
     const animationDuration = Math.random() * 10 + 10;
     const opacity = Math.random() * 0.5 + 0.1;
-    
+
     return (
       <div
         key={i}
-        className="beer-bubble"
+        className="beer-bubble pointer-events-none absolute rounded-full bg-jerusalem-gold/30 backdrop-blur-sm"
         style={{
-          width: size + 'px',
-          height: size + 'px',
-          left: left + '%',
+          width: `${size}px`,
+          height: `${size}px`,
+          left: `${left}%`,
           bottom: '-100px',
           opacity,
-          animationDelay: animationDelay + 's',
-          animationDuration: animationDuration + 's',
+          animationDelay: `${animationDelay}s`,
+          animationDuration: `${animationDuration}s`,
         }}
       />
     );
   });
-  
+
+  // --- venues ----------------------------------------------------------------
   const venues = [
     {
       id: 'andalusia',
       name: 'אנדלוסיה – טאפאס & קוקטייל בר',
       icon: '🍸',
-      description: 'בר כשר עם קוקטיילים, מנות שף, שלוש קומות ועיצוב צבעוני בלב כיכר המוזיקה. הופעות חיות כמעט כל ערב.',
+      description:
+        'בר כשר עם קוקטיילים, מנות שף, שלוש קומות ועיצוב צבעוני בלב כיכר המוזיקה. הופעות חיות כמעט כל ערב.',
       address: 'מעבר בית הכנסת 12, כיכר המוזיקה, ירושלים',
       hours: '🕕 חמישי: 18:00–00:30',
-      imageUrl: 'src/assets/images/andalusia.jpg'
+      imageUrl: andalusiaImg,
     },
     {
       id: 'sambation',
       name: 'סמבטיון – בר קוקטיילים ירושלמי',
       icon: '🍹',
-      description: '25 מקומות בלבד, אווירה אינטימית ורגועה, קוקטיילים בהשראת התרבות היהודית, Happy Hour 17:00–19:00.',
+      description:
+        '25 מקומות בלבד, אווירה אינטימית ורגועה, קוקטיילים בהשראת התרבות היהודית, Happy Hour 17:00–19:00.',
       address: 'גרשון אגרון 22, ירושלים',
       hours: '🕕 חמישי: 17:00–מאוחר',
-      imageUrl: 'src/assets/images/sambation.jpg'
+      imageUrl: sambationImg,
     },
     {
       id: 'machne-yehuda',
       name: 'שוק מחנה יהודה – חיי לילה תוססים',
       icon: '🍻',
-      description: 'בין הסמטאות – ברים, מוזיקה, גרפיטי, מעל 100 סוגי בירות. שוק שהופך למסיבה ירושלמית אחת גדולה.',
+      description:
+        'בין הסמטאות – ברים, מוזיקה, גרפיטי, מעל 100 סוגי בירות. שוק שהופך למסיבה ירושלמית אחת גדולה.',
       address: 'שוק מחנה יהודה, ירושלים',
       hours: '🕕 חמישי בלילה עד השעות הקטנות',
-      imageUrl: 'src/assets/images/crave.png'
-    }
+      imageUrl: craveImg,
+    },
   ];
 
   return (
-    <div className="min-h-screen w-full relative overflow-hidden">
-      {/* Background beer bubble animations */}
+    <div className="relative min-h-screen overflow-hidden bg-jerusalem-dark text-jerusalem-light font-heebo">
+      {/* Animated bubbles */}
       {bubbles}
-      
-      {/* Jerusalem city skyline */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-[url('/src/assets/images/jerusalem-skyline.png')] bg-repeat-x bg-bottom opacity-20"></div>
-      
-      {/* Main content */}
-      <div className="container max-w-6xl mx-auto px-4 py-12">
-        <header className="text-center mb-14">
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <img 
-              src="src/assets/images/beer-mug.png" 
-              alt="Beer Mug" 
-              className="w-14 h-14 animate-float" 
-            />
-            <h1 className="text-4xl md:text-5xl font-extrabold text-jerusalem-gold drop-shadow-lg">
+
+      {/* Main container */}
+      <div className="container mx-auto max-w-6xl px-4 py-12">
+        {/* Header */}
+        <header className="mb-14 text-center">
+          <div className="mb-6 flex items-center justify-center gap-3">
+            <img src={beerMug} alt="Beer Mug" className="h-14 w-14 animate-float" />
+            <h1 className="drop-shadow-lg text-4xl font-extrabold text-jerusalem-gold md:text-5xl">
               מה עם בירה בבירה?
             </h1>
-            <img 
-              src="src/assets/images/beer-mug.png" 
-              alt="Beer Mug" 
-              className="w-14 h-14 animate-float" 
+            <img
+              src={beerMug}
+              alt="Beer Mug"
+              className="h-14 w-14 animate-float"
               style={{ animationDelay: '1s' }}
             />
           </div>
-          
-          {/* Subtitle is removed as requested */}
         </header>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        {/* Venue cards */}
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {venues.map((venue) => (
-            <VenueCard
-              key={venue.id}
-              id={venue.id}
-              name={venue.name}
-              icon={venue.icon}
-              description={venue.description}
-              address={venue.address}
-              hours={venue.hours}
-              imageUrl={venue.imageUrl}
-             
-            />
+            <VenueCard key={venue.id} venue={venue} />
           ))}
         </div>
-        
-        <footer className="text-center mt-16 text-jerusalem-light/60 text-sm">
+
+        {/* Footer */}
+        <footer className="mt-16 text-center text-sm text-jerusalem-light/60">
           <p className="flex items-center justify-center gap-2">
-            נפגשים לשתות – חברים וירושלים, הכי טוב ביחד 
-            <span className="text-jerusalem-gold">🍺</span>
+            נפגשים לשתות – חברים וירושלים, הכי טוב ביחד <span className="text-jerusalem-gold">🍺</span>
           </p>
         </footer>
       </div>
