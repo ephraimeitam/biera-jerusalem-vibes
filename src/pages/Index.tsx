@@ -3,9 +3,9 @@ import VenueCard from '@/components/VenueCard';
 
 // 📦 Static assets handled by Vite – hashes & base path will be injected automatically
 import beerMug from '@/assets/images/beer-mug.png';
-import andalusiaImg from '@/assets/images/andalusia.jpg';
-import sambationImg from '@/assets/images/sambation.jpg';
-import craveImg from '@/assets/images/crave.png';
+import andalusiaImg from '@/assets/images/andalusia.jpg?url';
+import sambationImg from '@/assets/images/sambation.jpg?url';
+import craveImg from '@/assets/images/crave.png?url';
 
 const Index = () => {
   // --- animated beer bubbles (purely visual) ---------------------------------
@@ -93,7 +93,16 @@ const Index = () => {
         {/* Venue cards */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {venues.map((venue) => (
-            <VenueCard key={venue.id} venue={venue} />
+            <VenueCard
+              key={venue.id}
+              id={venue.id}
+              name={venue.name}
+              icon={venue.icon}
+              description={venue.description}
+              address={venue.address}
+              hours={venue.hours}
+              imageUrl={venue.imageUrl}
+            />
           ))}
         </div>
 
